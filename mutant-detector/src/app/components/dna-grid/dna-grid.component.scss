@@ -1,0 +1,95 @@
+.grid-wrapper {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+}
+
+.matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.dna-row {
+  display: flex;
+  gap: 4px;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 136, 0.08);
+  color: var(--text-dim);
+  transition: all 0.3s ease;
+
+  &.seq0 {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: var(--green);
+    color: var(--green);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+    animation: pulse-green 1.5s ease-in-out infinite;
+  }
+
+  &.seq1 {
+    background: rgba(255, 200, 0, 0.2);
+    border-color: #ffc800;
+    color: #ffc800;
+    box-shadow: 0 0 10px rgba(255, 200, 0, 0.3);
+    animation: pulse-yellow 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 255, 136, 0.3); }
+  50%       { box-shadow: 0 0 18px rgba(0, 255, 136, 0.7); }
+}
+
+@keyframes pulse-yellow {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 200, 0, 0.3); }
+  50%       { box-shadow: 0 0 18px rgba(255, 200, 0, 0.7); }
+}
+
+.legend {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &.dot0 { background: var(--green); box-shadow: 0 0 6px var(--green); }
+  &.dot1 { background: #ffc800;      box-shadow: 0 0 6px #ffc800; }
+}

@@ -1,0 +1,133 @@
+.input-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  .icon { font-size: 1.5rem; }
+
+  h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+.presets {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  .presets-label {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+}
+
+.preset-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  color: var(--green);
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-family: 'Share Tech Mono', monospace;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: var(--green);
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+
+  textarea {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 8px;
+    color: var(--green);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    padding: 1rem;
+    resize: vertical;
+    letter-spacing: 0.18em;
+    line-height: 1.9;
+    text-transform: uppercase;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 14px var(--green-glow);
+    }
+
+    &::placeholder { color: rgba(0, 255, 136, 0.2); }
+  }
+
+  .hint {
+    font-size: 0.7rem;
+    color: rgba(127, 170, 204, 0.4);
+    text-align: right;
+  }
+}
+
+.error-msg {
+  background: rgba(255, 51, 102, 0.08);
+  border: 1px solid rgba(255, 51, 102, 0.3);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  color: var(--red);
+}
+
+.analyze-btn {
+  margin-top: auto;
+  background: linear-gradient(135deg, var(--green-dim), var(--green));
+  border: none;
+  border-radius: 8px;
+  color: #050a0e;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  padding: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.2s;
+
+  .arrow { font-size: 1.1rem; transition: transform 0.2s; }
+
+  &:hover {
+    box-shadow: 0 0 28px var(--green-glow);
+    transform: translateY(-2px);
+    .arrow { transform: translateX(5px); }
+  }
+
+  &:active { transform: translateY(0); }
+}

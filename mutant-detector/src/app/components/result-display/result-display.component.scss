@@ -1,0 +1,90 @@
+.result-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  overflow: hidden;
+  border: 1px solid transparent;
+  margin-bottom: 1.25rem;
+
+  &.mutant {
+    background: radial-gradient(ellipse at center, rgba(255, 51, 102, 0.12) 0%, rgba(13, 27, 42, 0.8) 70%);
+    border-color: rgba(255, 51, 102, 0.4);
+
+    .glow-ring {
+      border-color: rgba(255, 51, 102, 0.3);
+      animation: spin 4s linear infinite;
+    }
+
+    .result-icon { text-shadow: 0 0 30px var(--red); }
+    .result-title { color: var(--red); text-shadow: 0 0 20px var(--red-glow); }
+  }
+
+  &.human {
+    background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.1) 0%, rgba(13, 27, 42, 0.8) 70%);
+    border-color: rgba(0, 255, 136, 0.35);
+
+    .glow-ring {
+      border-color: rgba(0, 255, 136, 0.25);
+    }
+
+    .result-icon { text-shadow: 0 0 20px var(--green); }
+    .result-title { color: var(--green); text-shadow: 0 0 20px var(--green-glow); }
+  }
+}
+
+.glow-ring {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.result-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.result-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 6px;
+}
+
+.result-sub {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.result-badge {
+  margin-top: 0.5rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 1px;
+
+  &.badge-mutant {
+    background: rgba(255, 51, 102, 0.15);
+    border: 1px solid rgba(255, 51, 102, 0.4);
+    color: var(--red);
+  }
+
+  &.badge-human {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    color: var(--green);
+  }
+}

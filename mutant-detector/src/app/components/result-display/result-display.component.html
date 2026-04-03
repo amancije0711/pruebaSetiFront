@@ -1,0 +1,22 @@
+<div class="result-card" [@fadeSlide]
+  [class.mutant]="analysis.isMutant"
+  [class.human]="!analysis.isMutant">
+
+  <div class="glow-ring"></div>
+
+  <div class="result-icon">{{ analysis.isMutant ? '☣' : '🧑' }}</div>
+
+  <div class="result-title">
+    {{ analysis.isMutant ? 'X-MEN' : 'NO X-MEN' }}
+  </div>
+
+  <div class="result-sub">
+    {{ analysis.isMutant
+      ? analysis.sequences.length + ' secuencias de 4 bases detectadas'
+      : 'No se hallaron secuencias múltiples' }}
+  </div>
+
+  <div class="result-badge" [class.badge-mutant]="analysis.isMutant" [class.badge-human]="!analysis.isMutant">
+    {{ analysis.isMutant ? 'Eres un mutante puedes ir a la academia de Xavier para jovenes talentos' : 'Eres un Humano felicidades puedes continuar tu vida normal' }}
+  </div>
+</div>

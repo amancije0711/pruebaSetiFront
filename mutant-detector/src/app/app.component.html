@@ -1,0 +1,47 @@
+<div class="app-shell">
+  <!-- Animated background particles -->
+  <div class="bg-particles">
+    <div class="particle" *ngFor="let p of particles" [style.left.%]="p.x" [style.top.%]="p.y"
+      [style.animation-duration]="p.dur + 's'" [style.animation-delay]="p.delay + 's'">
+      {{ p.base }}
+    </div>
+  </div>
+
+  <header class="app-header">
+    <div class="hex-logo">⬡</div>
+    <div class="title-group">
+      <h1>METODO DETECTOR MUTANTES</h1>
+      <p class="subtitle">Análisis de secuencias de ADN </p>
+    </div>
+    <div class="header-tag">v1.0</div>
+  </header>
+
+  <main class="app-main">
+    <section class="left-panel">
+      <app-dna-input (analyze)="onAnalyze($event)" />
+    </section>
+
+    <section class="right-panel">
+      <ng-container *ngIf="analysis; else emptyState">
+        <app-result-display [analysis]="analysis" />
+        <app-dna-grid [analysis]="analysis" />
+      </ng-container>
+
+      <ng-template #emptyState>
+        <div class="empty-state">
+          <div class="empty-icon">🔬</div>
+          <p>Ingresa una secuencia de ADN y presiona <strong>Analizar</strong></p>
+          <div class="hint-dna">
+            <span *ngFor="let b of hintBases" class="hint-base">{{ b }}</span>
+          </div>
+        </div>
+      </ng-template>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Prueba Técnica · Andres Mancilla</span>
+    <span class="sep">·</span>
+    <span>SETI</span>
+  </footer>
+</div>

@@ -1,0 +1,23 @@
+<div class="input-panel">
+  <div class="panel-header">
+    <span class="icon">🧬</span>
+    <h2>Secuencia de ADN</h2>
+  </div>
+
+  <div class="presets">
+    <span class="presets-label">Ejemplos:</span>
+    <button *ngFor="let p of presets" class="preset-btn" (click)="loadPreset(p)">{{ p.label }}</button>
+  </div>
+
+  <div class="field">
+    <label>Una fila por línea &middot; Solo A, T, C, G</label>
+    <textarea [(ngModel)]="dnaInput" rows="8" spellcheck="false" (input)="error = ''"></textarea>
+    <div class="hint">NxN &middot; Matriz cuadrada</div>
+  </div>
+
+  <div class="error-msg" *ngIf="error">⚠ {{ error }}</div>
+
+  <button class="analyze-btn" (click)="onAnalyze()">
+    Analizar ADN <span class="arrow">→</span>
+  </button>
+</div>

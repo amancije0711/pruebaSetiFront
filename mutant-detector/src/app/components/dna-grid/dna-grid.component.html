@@ -1,0 +1,22 @@
+<div class="grid-wrapper">
+  <p class="label">Matriz {{ analysis.dna.length }}×{{ analysis.dna.length }} · {{ analysis.sequences.length }} secuencia(s) encontrada(s)</p>
+
+  <div class="matrix">
+    <div class="dna-row" *ngFor="let row of grid">
+      <div
+        class="cell"
+        *ngFor="let cell of row"
+        [class.seq0]="cell.seqIdx === 0"
+        [class.seq1]="cell.seqIdx === 1">
+        {{ cell.base }}
+      </div>
+    </div>
+  </div>
+
+  <div class="legend" *ngIf="analysis.sequences.length">
+    <div *ngFor="let s of analysis.sequences; let i = index" class="legend-item">
+      <span class="dot" [class.dot0]="i === 0" [class.dot1]="i === 1"></span>
+      Secuencia {{ i + 1 }}: {{ s.direction }}
+    </div>
+  </div>
+</div>
